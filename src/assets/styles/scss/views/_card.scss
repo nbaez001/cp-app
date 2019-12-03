@@ -1,0 +1,30 @@
+.page {
+  mat-card {
+    margin: 15px;
+  }
+
+  .button-separate {
+    margin-left: 10px !important;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin: auto 10px;
+    textarea {
+      height: 100%;
+    }
+  }
+
+  mat-dialog-content > * {
+    font-size: 12px !important;
+  }
+
+  .icono {
+    height: 25px;
+    width: auto;
+  }
+}

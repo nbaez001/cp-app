@@ -1,0 +1,25 @@
+@import "../../../../../../../../../../assets/styles/scss/views/table";
+
+.table-container {
+  max-height: 400px;
+}
+
+@include mat-table-columns(
+  (
+    id: (
+      width: 2rem
+    ),
+    codigo: (
+      width: 4rem
+    ),
+    denominacion: (
+      width: 10rem
+    ),
+    nomGrupoGenerico: (
+      width: 8rem
+    ),
+    nomClaseGenerico: (
+      width: 8rem
+    )
+  )
+);

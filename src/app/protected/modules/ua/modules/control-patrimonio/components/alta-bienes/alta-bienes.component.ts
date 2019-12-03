@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Adquisicion } from '../../entities/adquisicion.model';
 import { adquisiciones, formasAdquisicion, aniosAdquisicion, mesesAdquisicion, estadosAdquisicion } from '../../data';
+import { DatePipe } from '@angular/common';
+import { RegAdqMasivoComponent } from './reg-adq-masivo/reg-adq-masivo.component';
+import { RegAdqIndividualComponent } from './reg-adq-individual/reg-adq-individual.component';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-alta-bienes',
@@ -33,7 +37,7 @@ export class AltaBienesComponent implements OnInit {
     }, {
       columnDef: 'fecha',
       header: 'FECHA ADQUISICION',
-      cell: (adquisicion: Adquisicion) => (adquisicion.fecha != null) ? `${adquisicion.fecha}` : ''
+      cell: (adquisicion: Adquisicion) => (adquisicion.fecha != null) ? `${this.datePipe.transform(adquisicion.fecha, 'dd/MM/yyyy')}` : ''
     }, {
       columnDef: 'nomEstado',
       header: 'ESTADO',
@@ -50,9 +54,11 @@ export class AltaBienesComponent implements OnInit {
   isLoading: boolean;
 
   constructor(private fb: FormBuilder, private dialog: MatDialog,
+    private datePipe: DatePipe, private spinnerService: Ng4LoadingSpinnerService,
   ) { }
 
   ngOnInit() {
+    this.spinnerService.show();
     this.bandejaGrp = this.fb.group({
       formaAdquisicion: ['', [Validators.required]],
       nroDocSustentatorio: ['', [Validators.required]],
@@ -80,6 +86,7 @@ export class AltaBienesComponent implements OnInit {
     this.comboMesesAdquisicion();
     this.comboEstadoAdquisicion();
     this.buscar();
+    this.spinnerService.hide();
   }
 
   public cargarDatosTabla(): void {
@@ -117,8 +124,26 @@ export class AltaBienesComponent implements OnInit {
     this.cargarDatosTabla();
   }
 
-  insertar() {
+  regAdqMasivo() {
+    const dialogRef = this.dialog.open(RegAdqMasivoComponent, {
+      width: '800px',
+      data: null
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  regAdqIndividual(): void {
+    const dialogRef = this.dialog.open(RegAdqIndividualComponent, {
+      width: '800px',
+      data: null
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 
 }

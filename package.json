@@ -38,6 +38,7 @@
     "moment": "^2.24.0",
     "net": "^1.0.2",
     "ng-socket-io": "^0.2.4",
+    "ng4-loading-spinner": "^1.2.3",
     "ngx-perfect-scrollbar": "^7.2.1",
     "ngx-push-notifications": "^7.0.2",
     "rxjs": "~6.3.3",

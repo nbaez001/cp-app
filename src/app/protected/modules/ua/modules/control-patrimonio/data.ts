@@ -1,4 +1,5 @@
 import { Adquisicion } from './entities/adquisicion.model';
+import { CatalogoBien } from './entities/catalogo-bien.model';
 
 export const formasAdquisicion: Object[] = [
     { id: 1, nombre: 'C-COMPRA' },
@@ -43,4 +44,28 @@ export const estadosAdquisicion: Object[] = [
 
 export const adquisiciones: Adquisicion[] = [
     { id: 1, idFormaAdquisicion: 1, nomFormaAdquisicion: 'ORDEN COMPRA', nroDocSustentatorio: '223-2019', fecha: new Date('2019-12-02'), idEstado: 1, nomEstado: 'COMPRADO', totalBienes: 10 }
+];
+
+export const gruposGenerico: object[] = [
+    { codigo: '74', nombre: 'OFICINA' },
+    { codigo: '81', nombre: 'RECREACION Y DEPORTE' },
+    { codigo: '88', nombre: 'SEGURIDAD INDUSTRIAL' },
+    { codigo: '95', nombre: 'TELECOMUNICACIONES' },
+];
+
+export const clasesGenerico: object[] = [
+    { codigo: '08', nombre: 'COMPUTO' },
+    { codigo: '22', nombre: 'EQUIPO' },
+    { codigo: '29', nombre: 'FERROCARRIL' },
+    { codigo: '36', nombre: 'MAQUINARIA PESADA' },
+    { codigo: '50', nombre: 'MAQUINA' },
+    { codigo: '64', nombre: 'MOBILIARIO' },
+];
+
+export const listaCatalogo: CatalogoBien[] = [
+    { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74089992', denominacion: 'VIDEO CAMARA PARA COMPUTADORA' },
+    { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74086800', denominacion: 'LECTORA DE DISCO COMPACTO EXTERNO COMPUTO - CD ROM' },
+    { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74080950', denominacion: 'COMPUTADORA SERVIDOR - MAIN FRAME' },
+    { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74080500', denominacion: 'COMPUTADORA PERSONAL PORTATIL' },
+    { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74080275', denominacion: 'COMPUTADORA DE MANO - WORKPAD' },
 ];

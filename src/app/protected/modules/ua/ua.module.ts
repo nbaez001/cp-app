@@ -7,7 +7,7 @@ import { UaRoutingModule } from './ua-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    UaRoutingModule
+    UaRoutingModule,
   ]
 })
 export class UaModule { }

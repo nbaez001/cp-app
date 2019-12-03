@@ -1,0 +1,25 @@
+@import "../../../../../../../../../assets/styles/scss/views/table";
+
+.table-container {
+  max-height: 400px;
+}
+
+@include mat-table-columns(
+  (
+    id: (
+      width: 2rem
+    ),
+    codPatrimonio: (
+      width: 4rem
+    ),
+    descripcionBien: (
+      width: 10rem
+    ),
+    valorAdquisicion: (
+      width: 8rem
+    ),
+    opt: (
+      width: 2.8rem
+    )
+  )
+);
