@@ -1,0 +1,12 @@
+
+<div [ngSwitch]="view" class="views">
+  <app-chats class="view"
+                           *ngSwitchCase="'chats'"
+                           >
+  </app-chats>
+
+  <!-- <fuse-chat-user-sidenav class="view"
+                          *ngSwitchCase="'user'"
+                          [@slideInLeft]>
+  </fuse-chat-user-sidenav> -->
+</div>

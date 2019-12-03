@@ -1,0 +1,83 @@
+
+    <!-- CABECERA -->
+    <mat-toolbar class="mat-primary mat-elevation-z2 cabecera">
+      <span>ARCHIVOS FINALES DEL PRESUPUESTO</span>
+       <button tabindex="-1" mat-icon-button (click)="dialogRef.close()">
+          <mat-icon>clear</mat-icon> 
+      </button> 
+    </mat-toolbar>
+    <!-- CABECERA -->
+
+    <div mat-dialog-content class="contenido-formulario" [formGroup]="archivoForm">
+       
+      <div class="bandeja scrollPersonal">
+
+    <!-- BANDEJA -->
+      <table mat-table [dataSource]="dataSource">
+      
+        <ng-container matColumnDef="nro">
+            <th mat-header-cell *matHeaderCellDef> NRO</th>
+            <td mat-cell *matCellDef="let archivo; let i = index">{{i + 1}}</td>    
+        </ng-container>
+
+        <ng-container matColumnDef="archivo">
+          <th mat-header-cell *matHeaderCellDef> ARCHIVO </th>
+          <td mat-cell *matCellDef="let archivo" class= "convertir-label-link" matTooltip="Descargar Archivo" (click)="descargarArchivo(archivo.idCodigoArchivo , archivo.nombreArchivo)">{{archivo.nombreArchivo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoDoc">
+            <th mat-header-cell *matHeaderCellDef> TIPO DOC. </th>
+            <td mat-cell *matCellDef="let archivo">{{archivo.tipoArchivo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef> DESCRIPCION </th>
+            <td mat-cell *matCellDef="let archivo">{{archivo.descripcion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> ESTADO </th>
+            <td mat-cell *matCellDef="let archivo">{{archivo.nombreEstado}} </td>
+        </ng-container>
+
+      <ng-container matColumnDef="accion" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
+          <td mat-cell *matCellDef="let archivo">    
+              <button mat-icon-button  color="primary" (click)="visualizarArchivoExcelFinal(archivo.fidProyecto, archivo.cidTipoArchivo, archivo.idCodigoArchivo, archivo.estadoCarga)">
+                  <mat-icon  matTooltip = "Visualizar Archivo Final">pageview</mat-icon>
+              </button>
+          </td>
+      </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+      </table>
+
+        <div class="empty" *ngIf="!isLoading && dataSource === null">
+          No existe datos para mostrar en la tabla
+        </div>
+
+
+        <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+          <mat-progress-spinner 
+            color="primary" 
+            mode="indeterminate">
+          </mat-progress-spinner>
+        </mat-card>
+
+    </div>  
+</div>
+
+<div align="right" class="botones-margen-derecho">
+
+  <button color="warn" mat-raised-button (click)="dialogRef.close()">
+      <mat-icon>highlight_off</mat-icon> Cerrar
+  </button>
+
+</div>
+<br><br>
+
+
+     
+
+    

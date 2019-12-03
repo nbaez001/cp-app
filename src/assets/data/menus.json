@@ -1,0 +1,17 @@
+[
+    {
+        "cidNombre": "UA",
+        "cidUrl": "",
+        "cidIcono": "airplay",
+        "cidCodigo": "1",
+        "hijos": [
+            {
+                "cidNombre": "ALTA DE BIENES",
+                "cidUrl": "/ua/control-patrimonio/alta-bienes",
+                "cidIcono": "create",
+                "cidCodigo": "1",
+                "hijos": []
+            }
+        ]
+    }
+]

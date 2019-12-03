@@ -1,0 +1,94 @@
+
+
+    <mat-toolbar class="mat-primary mat-elevation-z2 cabecera">
+        <span>ARCHIVO FINAL DE PRESUPUESTO </span>
+         <!-- <button tabindex="-1" mat-icon-button (click)="dialogRef.close()">
+            <mat-icon>clear</mat-icon> 
+        </button>  -->
+      </mat-toolbar>
+  
+  <br><br>
+  <div class="container">
+      <div class="left">
+          Presupuesto
+      </div>  
+      <div class="center_div1">
+          <span><b>codPresupuesto</b></span> 
+      </div>
+      <div class="right">
+          <span><b>descPresupuesto</b></span>
+      </div>
+   </div>
+  
+   <div class="container">
+      <div class="left">
+          Cliente
+      </div>  
+      <div class="center_div2">
+          <span><b>cliente</b></span> 
+      </div>
+      <div class="right">
+          <span style="padding-right: 20px;">Costo al :</span>  
+          <span><b>fechaPresupuesto</b></span>
+      </div>
+   </div>
+  
+   <div class="container">
+      <div class="left">
+          Lugar
+      </div>  
+      <div class="center_div3">
+          <span><b>lugar</b></span> 
+      </div>
+   </div>
+  
+   <br><br>
+
+
+<div class = "scrollPersonal">
+<mat-tree [dataSource]="treeSource" [treeControl]="treeControl" [trackBy]="trackBy">
+
+  <!-- This is the tree node template for leaf nodes -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+  
+    <li class="mat-tree-node" renderDebug>
+      <!-- use a disabled button to provide padding for tree leaf -->
+      <button mat-icon-button disabled>
+          <!--  *ngIf="node.level == 1"  -->
+          <mat-icon  *ngIf="node.cantidadHijo > 0"  class="mat-icon-rtl-mirror" (click)="add(node)">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} 
+          </mat-icon>
+      </button>
+      {{node.name}} <span class="espacio_izq_elemento">{{node.descripcion}}</span>  <span style="padding-left: 20px;">{{node.id}}</span>
+      <span style="padding-left: 20px;">{{node.unidad}}</span> <span style="padding-left: 20px;">{{node.metrado}}</span>
+      <span style="padding-left: 20px;">{{node.precio}}</span> <span style="padding-left: 20px;">{{node.parcial}}</span>
+     <!--  <button type="button" mat-icon-button (click)="add(node)">
+          <mat-icon inline="true">add</mat-icon>
+        </button> --> 
+    </li>
+  </mat-tree-node>
+
+  <!-- node with children -->
+  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <li class="mat-tree-node" renderDebug>
+      <div class="mat-tree-node">
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror" (click)="add(node)">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} 
+          </mat-icon>
+        </button>
+        {{node.name}}  <span class="espacio_izq_elemento">{{node.descripcion}}</span> <span style="padding-left: 20px;">{{node.id}}</span>
+        <span style="padding-left: 20px;">{{node.unidad}}</span> <span style="padding-left: 20px;">{{node.metrado}}</span>
+        <span style="padding-left: 20px;">{{node.precio}}</span> <span style="padding-left: 20px;">{{node.parcial}}</span>
+       <!--  <button type="button" mat-icon-button (click)="add(node)">
+          <mat-icon inline="true">add</mat-icon>
+        </button> -->
+      </div>            
+    </li>
+    <ul [class.children-invisible]="!treeControl.isExpanded(node)">
+      <ng-container matTreeNodeOutlet></ng-container>
+    </ul>
+  </mat-nested-tree-node>
+</mat-tree>
+</div>
