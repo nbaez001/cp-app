@@ -36,10 +36,10 @@ export const mesesAdquisicion: Object[] = [
     { valor: 11, nombre: 'DICIEMBRE' },
 ];
 
-export const estadosAdquisicion: Object[] = [
-    { valor: 1, nombre: 'PENDIENTE' },
-    { valor: 2, nombre: 'FINALIZADO' },
-    { valor: 3, nombre: 'ANULADO' }
+export const estadosAdquisicion = [
+    { id: 1, nombre: 'PENDIENTE' },
+    { id: 2, nombre: 'FINALIZADO' },
+    { id: 3, nombre: 'ANULADO' }
 ];
 
 export const adquisiciones: Adquisicion[] = [

@@ -40,4 +40,14 @@ export class ValidationService {
             }
         });
     }
+
+    clearForm(group: FormGroup): void {
+        Object.keys(group.controls).forEach((key: string) => {
+            let abstractControl = group.get(key);
+            if (abstractControl instanceof FormGroup) {
+            } else {
+                abstractControl.setValue('');
+            }
+        });
+    }
 }

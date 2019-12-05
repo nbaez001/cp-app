@@ -2,7 +2,7 @@
   <h1 mat-dialog-title>Catalogo de bienes muebles</h1>
   <div mat-dialog-content>
     <form [formGroup]="formularioGrp">
-      <mat-grid-list cols="12" rowHeight="75px">
+      <mat-grid-list cols="12" rowHeight="55px">
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
           <mat-form-field appearance="outline">
             <mat-label>Grupo generico</mat-label>
@@ -25,18 +25,19 @@
         </mat-grid-tile>
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="nomTipoBien" placeholder="Tipo bien" type="text">
+            <mat-label>Tipo bien</mat-label>
+            <input matInput formControlName="nomTipoBien" placeholder="Tipo bien" type="text" [appUpperCase]>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="codigoTipoBien" placeholder="Codigo tipo bien" type="text">
+            <mat-label>Codigo tipo bien</mat-label>
+            <input matInput formControlName="codigoTipoBien" placeholder="Codigo tipo bien" type="text" [appUpperCase]>
           </mat-form-field>
         </mat-grid-tile>
 
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
-          <button mat-raised-button color="primary" type="button" matTooltip="Buscar catalogo"
-            (click)="buscar()">
+          <button mat-raised-button color="primary" type="button" matTooltip="Buscar catalogo" (click)="buscar()">
             <mat-icon>search</mat-icon>
             Buscar
           </button>
@@ -58,7 +59,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="seleccionaTipoBien(row)"></tr>
 
       </table>
 

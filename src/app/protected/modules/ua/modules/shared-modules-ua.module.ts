@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResponsiveRowsDirective } from '../directives/upper-case.directive';
+import { UpperCaseDirective } from '../../ups/modules/expediente/components/directives/upper-case.directive';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { ResponsiveRowsDirective } from '../directives/upper-case.directive';
     CommonModule
   ],
   exports: [
-    ResponsiveRowsDirective
+    ResponsiveRowsDirective,
   ]
 })
 export class SharedModulesUaModule { }

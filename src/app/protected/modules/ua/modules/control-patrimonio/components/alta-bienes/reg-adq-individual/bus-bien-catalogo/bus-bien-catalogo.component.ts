@@ -137,23 +137,8 @@ export class BusBienCatalogoComponent implements OnInit {
     this.cargarDatosTabla();
   }
 
-  seleccionar(): void {
-    if (this.formularioGrp.valid) {
-      // let mae = new BienPatrimonio();
-      // mae.id = 0;
-      // mae.nombres = this.conductorGrp.get('nombres').value;
-      // mae.apellidos = this.conductorGrp.get('apellidos').value;
-      // mae.nroBrevete = this.conductorGrp.get('nroBrevete').value;
-      // mae.iniVigenciaBrevete = this.conductorGrp.get('iniVigenciaBrevete').value;
-      // mae.finVigenciaBrevete = this.conductorGrp.get('finVigenciaBrevete').value;
-
-      // console.log(mae);
-      // this.listarMaestra(mae);
-      // this.limpiar();
-      console.log('valido');
-    } else {
-      this.validationService.getValidationErrors(this.formularioGrp, this.messages, this.formErrors, true);
-    }
+  seleccionaTipoBien(obj): void {
+    this.dialogRef.close(obj);
   }
 
 }

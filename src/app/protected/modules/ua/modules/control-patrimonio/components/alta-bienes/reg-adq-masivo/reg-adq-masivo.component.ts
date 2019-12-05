@@ -33,4 +33,8 @@ export class RegAdqMasivoComponent implements OnInit {
       this.formularioGrp.get('cargaMasiva').setValue(nombreArchivo);
     }
   }
+
+  guardar(): void {
+
+  }
 }

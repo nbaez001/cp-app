@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --o",
     "prod": "ng build --prod --base-href /scp-pais/",
     "dev": "ng build --base-href /scp-pais/",
     "test": "ng test",

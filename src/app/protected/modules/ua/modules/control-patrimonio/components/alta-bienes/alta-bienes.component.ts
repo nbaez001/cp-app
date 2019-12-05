@@ -60,11 +60,11 @@ export class AltaBienesComponent implements OnInit {
   ngOnInit() {
     this.spinnerService.show();
     this.bandejaGrp = this.fb.group({
-      formaAdquisicion: ['', [Validators.required]],
-      nroDocSustentatorio: ['', [Validators.required]],
-      anioAdquisicion: ['', [Validators.required]],
-      mesAdquisicion: ['', [Validators.required]],
-      estadoAdquisicion: ['', [Validators.required]],
+      formaAdquisicion: ['', []],
+      nroDocSustentatorio: ['', []],
+      anioAdquisicion: ['', []],
+      mesAdquisicion: ['', []],
+      estadoAdquisicion: ['', []],
     });
 
     this.definirTabla();
@@ -142,8 +142,19 @@ export class AltaBienesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if (result) {
+        this.listaAdquisicion.push(result);
+        this.cargarDatosTabla();
+      }
     });
+  }
+
+  exportar(): void {
+
+  }
+
+  verAdquisicion(): void {
+
   }
 
 }

@@ -10,16 +10,25 @@
       width: 2rem
     ),
     codPatrimonio: (
-      width: 4rem
+      width: 5rem
     ),
     descripcionBien: (
-      width: 10rem
+      width: 12rem
     ),
     valorAdquisicion: (
-      width: 8rem
+      width: 6rem
     ),
     opt: (
-      width: 2.8rem
+      width: 5rem
     )
   )
 );
+
+.btn-action {
+  position: absolute;
+  right: -8px;
+  top: 5px;
+  margin: -11px 0;
+  padding: 0;
+  background-color: #ffffff;
+}

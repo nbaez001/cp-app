@@ -19,8 +19,6 @@ import { WsResponseExcelPartidaVisualizarResponse, ExcelPartidaVisualizarRespons
 import { ExcelSupervisionVisualizarResponse, WsResponseExcelSupervisionVisualizarResponse } from '../../../dto/response/ExcelSupervisionVisualizarResponse';
 import { ViewChild } from '@angular/core';
 import {delay} from 'rxjs/operators';
-import { JefeElaboradorArchivoPresupuestoVersionFinalComponent } from './jefe-elaborador-archivo-presupuesto-version-final/jefe-elaborador-archivo-presupuesto-version-final.component';
-import { JefeElaboradorArchivoPartidaVersionFinalComponent } from './jefe-elaborador-archivo-partida-version-final/jefe-elaborador-archivo-partida-version-final.component';
 
 
 @Component({
@@ -202,80 +200,80 @@ export class JefeElaboradorArchivoPresupuestoComponent implements OnInit {
 
    visualizarArchivoExcelPresupuestoFinal(fidProyecto: number, idCodigoArchivo: number, estadoCarga: string){
     let idPadre = 0;
-    this.proyectoService.visualizarArchivoExcelPresupuestoFinal(fidProyecto, idPadre)
-    .subscribe(
-      (wsResponseExcelVisualizarResponse : WsResponseExcelVisualizarResponse)=> {
-        debugger;
-        if(wsResponseExcelVisualizarResponse.codResultado == 1){
-          this.excelVisualizarResponse = (wsResponseExcelVisualizarResponse.response != null) ? wsResponseExcelVisualizarResponse.response : []; 
-          const dialogReg: MatDialogRef<JefeElaboradorArchivoPresupuestoVersionFinalComponent> = this.dialog.open(JefeElaboradorArchivoPresupuestoVersionFinalComponent, {
-            panelClass: 'dialog-no-padding',
-            width: '1400px',
-            //height: '0%',
-            data: {
-              fidProyecto,
-              archivoExcel: this.excelVisualizarResponse,
-              idCodigoArchivo,
-              estadoCarga
-            }
-          });
-          dialogReg.afterClosed().subscribe((conformidadRealizada: any) => {           
-            console.log(conformidadRealizada);
-            if(typeof conformidadRealizada !== 'undefined' || conformidadRealizada !== null ){
-              this.listadoArchivo();
-            }
-          });
+    // this.proyectoService.visualizarArchivoExcelPresupuestoFinal(fidProyecto, idPadre)
+    // .subscribe(
+    //   (wsResponseExcelVisualizarResponse : WsResponseExcelVisualizarResponse)=> {
+    //     debugger;
+    //     if(wsResponseExcelVisualizarResponse.codResultado == 1){
+    //       this.excelVisualizarResponse = (wsResponseExcelVisualizarResponse.response != null) ? wsResponseExcelVisualizarResponse.response : []; 
+    //       const dialogReg: MatDialogRef<JefeElaboradorArchivoPresupuestoVersionFinalComponent> = this.dialog.open(JefeElaboradorArchivoPresupuestoVersionFinalComponent, {
+    //         panelClass: 'dialog-no-padding',
+    //         width: '1400px',
+    //         //height: '0%',
+    //         data: {
+    //           fidProyecto,
+    //           archivoExcel: this.excelVisualizarResponse,
+    //           idCodigoArchivo,
+    //           estadoCarga
+    //         }
+    //       });
+    //       dialogReg.afterClosed().subscribe((conformidadRealizada: any) => {           
+    //         console.log(conformidadRealizada);
+    //         if(typeof conformidadRealizada !== 'undefined' || conformidadRealizada !== null ){
+    //           this.listadoArchivo();
+    //         }
+    //       });
       
-        }else{
-          this.mensaje = MENSAJES.ERROR_NOFUNCION;
-          this.openDialogMensaje(null,  wsResponseExcelVisualizarResponse.msgResultado, true, false, wsResponseExcelVisualizarResponse.codResultado);
-        }
+    //     }else{
+    //       this.mensaje = MENSAJES.ERROR_NOFUNCION;
+    //       this.openDialogMensaje(null,  wsResponseExcelVisualizarResponse.msgResultado, true, false, wsResponseExcelVisualizarResponse.codResultado);
+    //     }
 
-      },
-      error => {
-        this.mensaje = MENSAJES.ERROR_SERVICIO;
-        console.error(error);
-      }   
-    ); 
+    //   },
+    //   error => {
+    //     this.mensaje = MENSAJES.ERROR_SERVICIO;
+    //     console.error(error);
+    //   }   
+    // ); 
   }
 
   visualizarArchivoExcelPartidaFinal(fidProyecto: number, idCodigoArchivo: number, estadoCarga: string){
     let idPadre = 0;
-    this.proyectoService.visualizarArchivoExcelPresupuestoFinal(fidProyecto, idPadre)
-    .subscribe(
-      (wsResponseExcelVisualizarResponse : WsResponseExcelVisualizarResponse)=> {
-        debugger;
-        if(wsResponseExcelVisualizarResponse.codResultado == 1){ 
-          this.excelVisualizarResponse = (wsResponseExcelVisualizarResponse.response != null) ? wsResponseExcelVisualizarResponse.response : [];
-          const dialogReg: MatDialogRef<JefeElaboradorArchivoPartidaVersionFinalComponent> = this.dialog.open(JefeElaboradorArchivoPartidaVersionFinalComponent, {
-            panelClass: 'dialog-no-padding',
-            width: '1400px',
-            //height: '0%',
-            data: {
-              fidProyecto,
-              archivoExcel: this.excelVisualizarResponse,
-              idCodigoArchivo,
-              estadoCarga
-            }
-          });
-          dialogReg.afterClosed().subscribe((conformidadRealizada: any) => {           
-            console.log(conformidadRealizada);
-            if(typeof conformidadRealizada !== 'undefined' || conformidadRealizada !== null ){
-              this.listadoArchivo();
-            }
-          });
+    // this.proyectoService.visualizarArchivoExcelPresupuestoFinal(fidProyecto, idPadre)
+    // .subscribe(
+    //   (wsResponseExcelVisualizarResponse : WsResponseExcelVisualizarResponse)=> {
+    //     debugger;
+    //     if(wsResponseExcelVisualizarResponse.codResultado == 1){ 
+    //       this.excelVisualizarResponse = (wsResponseExcelVisualizarResponse.response != null) ? wsResponseExcelVisualizarResponse.response : [];
+    //       const dialogReg: MatDialogRef<JefeElaboradorArchivoPartidaVersionFinalComponent> = this.dialog.open(JefeElaboradorArchivoPartidaVersionFinalComponent, {
+    //         panelClass: 'dialog-no-padding',
+    //         width: '1400px',
+    //         //height: '0%',
+    //         data: {
+    //           fidProyecto,
+    //           archivoExcel: this.excelVisualizarResponse,
+    //           idCodigoArchivo,
+    //           estadoCarga
+    //         }
+    //       });
+    //       dialogReg.afterClosed().subscribe((conformidadRealizada: any) => {           
+    //         console.log(conformidadRealizada);
+    //         if(typeof conformidadRealizada !== 'undefined' || conformidadRealizada !== null ){
+    //           this.listadoArchivo();
+    //         }
+    //       });
       
-         }else{
-          this.mensaje = MENSAJES.ERROR_NOFUNCION;
-          this.openDialogMensaje(null,  wsResponseExcelVisualizarResponse.msgResultado, true, false, wsResponseExcelVisualizarResponse.codResultado);
-        }
+    //      }else{
+    //       this.mensaje = MENSAJES.ERROR_NOFUNCION;
+    //       this.openDialogMensaje(null,  wsResponseExcelVisualizarResponse.msgResultado, true, false, wsResponseExcelVisualizarResponse.codResultado);
+    //     }
 
-      },
-      error => {
-        this.mensaje = MENSAJES.ERROR_SERVICIO;
-        console.error(error);
-      }   
-    );  
+    //   },
+    //   error => {
+    //     this.mensaje = MENSAJES.ERROR_SERVICIO;
+    //     console.error(error);
+    //   }   
+    // );  
   }
 
   public openDialogMensaje(

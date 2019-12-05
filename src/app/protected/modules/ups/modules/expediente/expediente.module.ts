@@ -28,7 +28,6 @@ import { EncargadoDetalleComponent } from './components/encargado-ups/encargado-
 import { EncargadoArchivoComponent } from './components/encargado-ups/encargado-archivo/encargado-archivo.component';
 import { OnlyLettersDirective } from './components/directives/only-letters.directive';
 import { CoordinadorAprobarComponent } from './components/coordinador-ups/coordinador-aprobar/coordinador-aprobar.component';
-import { UpperCaseDirective } from './components/directives/upper-case.directive';
 import { AprobarExpedienteComponent } from './components/jefe-ups/aprobar-expediente/aprobar-expediente.component';
 import { AuthModule } from '@shared/auth/auth.module';
 import { JefeElaboradorComponent } from './components/jefe-elaborador/jefe-elaborador.component';
@@ -50,8 +49,6 @@ import { JefeElaboradorArchivoVerGeneralComponent } from './components/jefe-elab
 import { JefeElaboradorArchivoVerSupervisionComponent } from './components/jefe-elaborador/jefe-elaborador-archivo/jefe-elaborador-archivo-ver-supervision/jefe-elaborador-archivo-ver-supervision.component';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { JefeElaboradorArchivoPresupuestoComponent } from './components/jefe-elaborador/jefe-elaborador-archivo-presupuesto/jefe-elaborador-archivo-presupuesto.component';
-import { JefeElaboradorArchivoPresupuestoVersionFinalComponent } from './components/jefe-elaborador/jefe-elaborador-archivo-presupuesto/jefe-elaborador-archivo-presupuesto-version-final/jefe-elaborador-archivo-presupuesto-version-final.component';
-import { JefeElaboradorArchivoPartidaVersionFinalComponent } from './components/jefe-elaborador/jefe-elaborador-archivo-presupuesto/jefe-elaborador-archivo-partida-version-final/jefe-elaborador-archivo-partida-version-final.component';
 
  
 @NgModule({
@@ -76,7 +73,6 @@ import { JefeElaboradorArchivoPartidaVersionFinalComponent } from './components/
     EncargadoArchivoComponent,
     OnlyLettersDirective,
     CoordinadorAprobarComponent,
-    UpperCaseDirective,
     AprobarExpedienteComponent,
     JefeElaboradorComponent,
     JefeRevisorComponent,
@@ -94,8 +90,6 @@ import { JefeElaboradorArchivoPartidaVersionFinalComponent } from './components/
     JefeElaboradorArchivoVerGeneralComponent,
     JefeElaboradorArchivoVerSupervisionComponent,
     JefeElaboradorArchivoPresupuestoComponent,
-    JefeElaboradorArchivoPresupuestoVersionFinalComponent,
-    JefeElaboradorArchivoPartidaVersionFinalComponent
 
   ],
   entryComponents: [
@@ -127,8 +121,6 @@ import { JefeElaboradorArchivoPartidaVersionFinalComponent } from './components/
     JefeElaboradorArchivoVerGeneralComponent,
     JefeElaboradorArchivoVerSupervisionComponent,
     JefeElaboradorArchivoPresupuestoComponent,
-    JefeElaboradorArchivoPresupuestoVersionFinalComponent,
-    JefeElaboradorArchivoPartidaVersionFinalComponent
 
   ],
   providers: [

@@ -49,6 +49,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ConfirmMessageComponent } from './components/confirm-message/confirm-message.component';
 import { PipeModule } from './pipes/pipe.module';
 import { MatPaginatorIntlCustom } from './services/paginator-custom-intl.service';
+import { UpperCaseDirective } from 'app/protected/modules/ups/modules/expediente/components/directives/upper-case.directive';
 
 @NgModule({
   imports: [
@@ -147,9 +148,11 @@ import { MatPaginatorIntlCustom } from './services/paginator-custom-intl.service
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    UpperCaseDirective,
   ],
   declarations: [
+    UpperCaseDirective,
     ConfirmMessageComponent
   ],
   entryComponents: [

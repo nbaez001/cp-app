@@ -27,6 +27,7 @@ import { AuthModule } from '@shared/auth/auth.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoadingModule } from '@shared/loading/loading.module';
+import { UpperCaseDirective } from './modules/ups/modules/expediente/components/directives/upper-case.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { LoadingModule } from '@shared/loading/loading.module';
     NavbarComponent,
     ToolbarComponent,
     // TODO: POR REFACTORIZAR
-    LockComponent
+    LockComponent,
   ],
   imports: [
     ProtectedRoutingModule,

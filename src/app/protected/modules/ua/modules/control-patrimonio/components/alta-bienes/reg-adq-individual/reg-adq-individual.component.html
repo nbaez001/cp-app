@@ -2,7 +2,7 @@
   <h1 mat-dialog-title>Registro adquisicion forma individual</h1>
   <div mat-dialog-content>
     <form [formGroup]="formularioGrp">
-      <mat-grid-list cols="12" rowHeight="75px">
+      <mat-grid-list cols="12" rowHeight="55px">
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
           <mat-form-field appearance="outline">
             <mat-label>Forma adquisicion</mat-label>
@@ -15,23 +15,68 @@
         </mat-grid-tile>
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="nroDocSustentatorio" placeholder="N° documento sustentatorio" type="text">
+            <mat-label>N° Documento sustentatorio</mat-label>
+            <input matInput formControlName="nroDocSustentatorio" placeholder="N° documento sustentatorio" type="text"
+              [appUpperCase]>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
           <mat-form-field appearance="outline">
+            <mat-label>Fecha adquisicion</mat-label>
             <input matInput formControlName="fechaAdquisicion" [matDatepicker]="picker" placeholder="Fecha adquisicion">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </mat-grid-tile>
-        <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
-          <button mat-raised-button color="primary" type="button" matTooltip="Agregar tipo de bien del catalogo" (click)="buscarCatalogo()">
-            <mat-icon>add_box</mat-icon>
-            Seleccione tipo bien de catalogo
-          </button>
-        </mat-grid-tile>
       </mat-grid-list>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Detalle adquisicion</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="detFormularioGrp">
+            <mat-grid-list cols="12" rowHeight="50px">
+              <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
+                <mat-form-field appearance="outline">
+                  <mat-label>Codigo</mat-label>
+                  <input matInput formControlName="codigoBienPatrimonio" placeholder="Codigo">
+                  <button mat-button matTooltip="Buscar" type="button" class="btn-action" color="primary"
+                    (click)="buscarCatalogo()">
+                    <mat-icon>search</mat-icon>
+                  </button>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
+                <mat-form-field appearance="outline">
+                  <mat-label>Denominacion catalogo</mat-label>
+                  <input matInput formControlName="denBienPatrimonio" placeholder="Denominacion catalogo">
+                  <button mat-button matTooltip="Buscar" type="button" class="btn-action" color="primary"
+                    (click)="buscarCatalogo()">
+                    <mat-icon>search</mat-icon>
+                  </button>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
+                <mat-form-field appearance="outline">
+                  <mat-label>Cantidad</mat-label>
+                  <input matInput formControlName="cantidad" placeholder="Cantidad" type="number">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 6, lg: 6, xl: 6}">
+                <mat-form-field appearance="outline">
+                  <mat-label>Valor unitario</mat-label>
+                  <input matInput formControlName="valorUnitario" placeholder="Valor unitario" type="number">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [responsiveRows]="{xs: 12, sm: 12, md: 12, lg: 12, xl: 12}">
+                <button mat-raised-button color="primary" (click)="agregarDetalle()">Agregar</button>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </form>
+
+        </mat-card-content>
+      </mat-card>
     </form>
 
     <div class="table-container">
@@ -73,7 +118,7 @@
         </mat-progress-spinner>
       </div>
 
-      <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+      <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons>
       </mat-paginator>
     </div>
   </div>
