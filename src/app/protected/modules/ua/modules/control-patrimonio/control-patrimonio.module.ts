@@ -10,20 +10,27 @@ import { RegAdqIndividualComponent } from './components/alta-bienes/reg-adq-indi
 import { RegAdqMasivoComponent } from './components/alta-bienes/reg-adq-masivo/reg-adq-masivo.component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { BusBienCatalogoComponent } from './components/alta-bienes/reg-adq-individual/bus-bien-catalogo/bus-bien-catalogo.component';
+import { RegIndvBnsSbrtsComponent } from './components/bdj-bns-sobrantes/reg-indv-bns-sbrts/reg-indv-bns-sbrts.component';
+import { RegMasivBnsSbrtsComponent } from './components/bdj-bns-sobrantes/reg-masiv-bns-sbrts/reg-masiv-bns-sbrts.component';
+import { BdjBnsSobrantesComponent } from './components/bdj-bns-sobrantes/bdj-bns-sobrantes.component';
 
 @NgModule({
   entryComponents: [
     RegAdqIndividualComponent,
     RegAdqMasivoComponent,
     BusBienCatalogoComponent,
+    RegIndvBnsSbrtsComponent,
+    RegMasivBnsSbrtsComponent,
   ],
   declarations: [
     RegAdqIndividualComponent,
     RegAdqMasivoComponent,
     BusBienCatalogoComponent,
-
+    RegIndvBnsSbrtsComponent,
+    RegMasivBnsSbrtsComponent,
 
     AltaBienesComponent,
+    BdjBnsSobrantesComponent,
   ],
   imports: [
     SharedModule,

@@ -11,6 +11,12 @@
                 "cidIcono": "create",
                 "cidCodigo": "1",
                 "hijos": []
+            },{
+                "cidNombre": "BIENES SOBRANTES",
+                "cidUrl": "/ua/control-patrimonio/bdj-bienes-sobrantes",
+                "cidIcono": "launch",
+                "cidCodigo": "2",
+                "hijos": []
             }
         ]
     }

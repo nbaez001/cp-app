@@ -1,0 +1,125 @@
+<div class="page">
+  <ng4-loading-spinner [timeout]="300000"></ng4-loading-spinner>
+  <mat-card class="box-filtros">
+    <mat-card-header class="box-section-header colorroca">
+      <mat-card-title class="box-section-title"> BUSQUEDA BIENES SOBRANTES </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="bandejaGrp" class="example-container">
+        <mat-grid-list cols="12" rowHeight="50px">
+          <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 4, lg: 3, xl: 3}">
+            <mat-form-field appearance="outline">
+              <mat-label>Departamento</mat-label>
+              <mat-select formControlName="departamento">
+                <mat-option *ngFor="let departamento of departamentos" [value]="departamento">
+                  {{departamento.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 4, lg: 3, xl: 3}">
+            <mat-form-field appearance="outline">
+              <mat-label>Provincia</mat-label>
+              <mat-select formControlName="provincia">
+                <mat-option *ngFor="let provincia of provincias" [value]="provincia">
+                  {{provincia.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 4, lg: 3, xl: 3}">
+            <mat-form-field appearance="outline">
+              <mat-label>Distrito</mat-label>
+              <mat-select formControlName="distrito">
+                <mat-option *ngFor="let distrito of distritos" [value]="distrito">
+                  {{distrito.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 4, lg: 3, xl: 3}">
+            <mat-form-field appearance="outline">
+              <mat-label>Centro poblado</mat-label>
+              <mat-select formControlName="centroPoblado">
+                <mat-option *ngFor="let centroPoblado of centrosPoblados" [value]="centroPoblado">
+                  {{centroPoblado.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [responsiveRows]="{xs: 12, sm: 6, md: 4, lg: 3, xl: 3}">
+            <mat-form-field appearance="outline">
+              <mat-label>Estado bien</mat-label>
+              <mat-select formControlName="estadoBien">
+                <mat-option *ngFor="let estadoBien of estadosBienesSobrantes" [value]="estadoBien">
+                  {{estadoBien.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="btnRigth" align="end">
+      <button mat-raised-button color="primary" (click)="buscar()">
+        <mat-icon>search</mat-icon>
+        <strong> BUSCAR</strong>
+      </button>
+      <button mat-raised-button (click)="regAdqMasivo()">
+        <mat-icon>create</mat-icon>
+        <strong> REG. MASIVO</strong>
+      </button>
+      <button mat-raised-button (click)="regAdqIndividual()">
+        <mat-icon>create</mat-icon>
+        <strong> REG. INDIVIDUAL</strong>
+      </button>
+      <button mat-raised-button (click)="exportar()">
+        <mat-icon><img class="icono" src="assets/images/logoexcel.png"></mat-icon>
+        <strong>EXP. EXCEL</strong>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="table-resultados">
+    <mat-card-header>
+      <mat-card-title> LISTA DE BIENES SOBRANTES: </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-container">
+      <div class="table-container clear-both">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Nro</th>
+            <td mat-cell *matCellDef="let row1; let i=index">{{i+1}} </td>
+          </ng-container>
+
+          <ng-container *ngFor="let column of columnsGrilla" [matColumnDef]="column.columnDef">
+            <th mat-header-cell *matHeaderCellDef> {{ column.header }} </th>
+            <td mat-cell *matCellDef="let row"> {{ column.cell(row) }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="opt" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef>OPC.</th>
+            <td mat-cell *matCellDef="let row2">
+              <button mat-icon-button color="primary" (click)="verAdquisicion(row2)" matTooltip="Ver detalle">
+                <mat-icon>search</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+        <div class="empty" *ngIf="dataSource === null">
+          No existe datos para mostrar en la tabla
+        </div>
+
+        <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+        </mat-paginator>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

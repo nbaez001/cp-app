@@ -1,0 +1,76 @@
+@import "../../../../../../../../../assets/styles/scss/views/table";
+
+.table-container {
+  max-height: 400px;
+}
+
+@include mat-table-columns(
+  (
+    id: (
+      width: 2rem
+    ),
+    nomDepartamento: (
+      width: 12rem
+    ),
+    nomProvincia: (
+      width: 12rem
+    ),
+    nomDistrito: (
+      width: 9rem
+    ),
+    nomCentroPoblado: (
+      width: 9rem
+    ),
+    descripcionBien: (
+      width: 6rem
+    ),
+    marca: (
+      width: 6rem
+    ),
+    modelo: (
+      width: 6rem
+    ),
+    tipo: (
+      width: 6rem
+    ),
+    color: (
+      width: 6rem
+    ),
+    serie: (
+      width: 6rem
+    ),
+    medida: (
+      width: 6rem
+    ),
+    anio: (
+      width: 6rem
+    ),
+    placa: (
+      width: 6rem
+    ),
+    chasis: (
+      width: 6rem
+    ),
+    motor: (
+      width: 6rem
+    ),
+    nomEstado: (
+      width: 6rem
+    ),
+    comentarios: (
+      width: 20rem
+    ),
+    opt: (
+      width: 3rem
+    )
+  )
+);
+
+.btn-action {
+  position: absolute;
+  right: -8px;
+  top: 5px;
+  margin: -11px 0;
+  padding: 0;
+  background-color: #ffffff;
+}

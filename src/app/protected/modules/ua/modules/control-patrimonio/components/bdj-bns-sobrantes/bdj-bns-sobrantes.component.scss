@@ -1,0 +1,72 @@
+@import "../../../../../../../../assets/styles/scss/views/table";
+
+.page {
+  .table-resultados {
+    // margin-bottom: 0px;
+    .table-container {
+      max-height: 500px;
+    }
+  }
+}
+
+@include mat-table-columns(
+  (
+    id: (
+      width: 2rem
+    ),
+    nomDepartamento: (
+      width: 12rem
+    ),
+    nomProvincia: (
+      width: 12rem
+    ),
+    nomDistrito: (
+      width: 9rem
+    ),
+    nomCentroPoblado: (
+      width: 9rem
+    ),
+    descripcionBien: (
+      width: 6rem
+    ),
+    marca: (
+      width: 6rem
+    ),
+    modelo: (
+      width: 6rem
+    ),
+    tipo: (
+      width: 6rem
+    ),
+    color: (
+      width: 6rem
+    ),
+    serie: (
+      width: 6rem
+    ),
+    medida: (
+      width: 6rem
+    ),
+    anio: (
+      width: 6rem
+    ),
+    placa: (
+      width: 6rem
+    ),
+    chasis: (
+      width: 6rem
+    ),
+    motor: (
+      width: 6rem
+    ),
+    nomEstado: (
+      width: 6rem
+    ),
+    comentarios: (
+      width: 20rem
+    ),
+    opt: (
+      width: 3rem
+    )
+  )
+);

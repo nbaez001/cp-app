@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Registro adquisicion de forma masiva</h1>
+<div mat-dialog-content>
+  <ul>
+    <li>Paso Nº 1: Descargar el formato EXCEL "Carga Masiva Altas / Adquisiciones <a><img
+          src="../../../../../../../../../assets/images/ua/m-cp/excel.png"></a></li>
+    <li>Paso Nº 2: Descargar la estructura del formato PDF "Carga Masiva Altas / Adquisiciones <a><img
+          src="../../../../../../../../../assets/images/ua/m-cp/pdf.png"></a></li>
+    <li>Adjuntar el archivo excel</li>
+    <!-- <button mat-raised-button>cargar archivo</button> -->
+    <form [formGroup]="formularioGrp">
+      <mat-form-field class="field-carga-masiva">
+        <input formControlName="cargaMasiva" matInput type="text" placeholder="Archivo">
+        <button mat-button matTooltip="cargar archivo" type="button" class="btn-action" color="primary"
+          (click)="buscarActa($event)">
+          Cargar archivo
+          <mat-icon>cloud_upload</mat-icon>
+        </button>
+        <input id="fileCargaMasiva" class="none" type="file" accept="application/pdf" (change)="cargarArchivo($event)">
+      </mat-form-field>
+    </form>
+  </ul>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" (click)="guardar()">Subir carga</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salir</button>
+</div>

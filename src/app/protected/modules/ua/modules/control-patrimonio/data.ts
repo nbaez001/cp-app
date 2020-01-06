@@ -1,5 +1,6 @@
 import { Adquisicion } from './entities/adquisicion.model';
 import { CatalogoBien } from './entities/catalogo-bien.model';
+import { BienSobrante } from './entities/bien-sobrante.model';
 
 export const formasAdquisicion: Object[] = [
     { id: 1, nombre: 'C-COMPRA' },
@@ -68,4 +69,25 @@ export const listaCatalogo: CatalogoBien[] = [
     { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74080950', denominacion: 'COMPUTADORA SERVIDOR - MAIN FRAME' },
     { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74080500', denominacion: 'COMPUTADORA PERSONAL PORTATIL' },
     { id: 1, codGrupoGenerico: '74', nomGrupoGenerico: 'OFICINA', codClaseGenerico: '08', nomClaseGenerico: 'COMPUTO', codigo: '74080275', denominacion: 'COMPUTADORA DE MANO - WORKPAD' },
+];
+
+export const _departamentos: any[] = [
+    { id: 1, nombre: 'AYACUCHO' },
+];
+export const _provincias: any[] = [
+    { id: 1, nombre: 'LA MAR', idDepartemento: 1 },
+];
+export const _distritos: any[] = [
+    { id: 1, nombre: 'ANCO', idProvincia: 1 },
+];
+export const _centrosPoblado: any[] = [
+    { id: 1, nombre: 'ARWIMAYO', idDistrito: 1 },
+];
+export const _estadosBien: any[] = [
+    { id: 1, nombre: 'BUENO' },
+    { id: 2, nombre: 'REGULAR' },
+];
+
+export const _bienesSobrantes: BienSobrante[] = [
+    { id: 0, idEstado: 1, nomEstado: 'BUENO', idCentroPoblado: 1, nomCentroPoblado: 'ARWIMAYO', idDistrito: 1, nomDistrito: 'ANCO', idProvincia: 1, nomProvincia: 'LA MAR', idDepartamento: 1, nomDepartamento: 'AYACUCHO', codBienSobrante: '00001', descripcionBien: 'LAPTOP', marca: 'HP', modelo: '', tipo: 'LAPTOP', color: '', serie: '5CG3290XQ1', medida: '', anio: '', placa: '', chasis: '', motor: '', comentarios: 'PROCESADOR INTEL CORE I5, PNTALLA 14, 4GB MEMORIA RAM, DISCO DURO DE 640GB CON SOFTWARE', fechaRegistro: new Date('2015-10-17') }
 ];

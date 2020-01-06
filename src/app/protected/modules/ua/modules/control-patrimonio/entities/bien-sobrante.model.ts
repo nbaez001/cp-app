@@ -1,17 +1,8 @@
-export class BienPatrimonio {
+export class BienSobrante {
     id: number;
     idEstado: number;
     nomEstado: string;
 
-    idCuenta: number;
-    codCuenta: string;
-    nomCuenta: string;
-    fechaContabilidad: Date;
-
-    idUnidad: number;
-    nomUnidad: string;
-    idTambo: number;
-    nomTambo: string;
     idCentroPoblado: number;
     nomCentroPoblado: string;
     idDistrito: number;
@@ -21,10 +12,7 @@ export class BienPatrimonio {
     idDepartamento: number;
     nomDepartamento: string;
 
-    nroDocAdquisicion: string;
-    valorAdquisicion: string;
-
-    codPatrimonio: string;
+    codBienSobrante: string;
     descripcionBien: string;
 
 
@@ -40,6 +28,4 @@ export class BienPatrimonio {
     motor: string;
     comentarios: string;
     fechaRegistro: Date;
-
-    condicion: string;
 }
